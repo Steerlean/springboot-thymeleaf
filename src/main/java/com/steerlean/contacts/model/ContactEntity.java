@@ -1,11 +1,6 @@
 package com.steerlean.contacts.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TBL_EMPLOYEES")
@@ -18,14 +13,11 @@ public class ContactEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "first_name") private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "last_name") private String lastName;
 
-    @Column(name = "email", nullable = false, length = 200)
-    private String email;
+    @Column(name = "email", nullable = false, length = 200) private String email;
 
     public Long getId() {
         return id;
@@ -61,7 +53,6 @@ public class ContactEntity {
 
     @Override
     public String toString() {
-        return "ContactEntity [id=" + id + ", firstName=" + firstName +
-                ", lastName=" + lastName + ", email=" + email + "]";
+        return "ContactEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
     }
 }

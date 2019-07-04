@@ -24,7 +24,9 @@ public class ContactRepository {
 
     public Optional<ContactEntity> findById(Long id) {
         for (ContactEntity entity : contacts) {
-            if (entity.getId().equals(id)) {
+            if (entity
+              .getId()
+              .equals(id)) {
                 return Optional.of(entity);
             }
         }
@@ -41,7 +43,9 @@ public class ContactRepository {
         int i = -1;
         for (ContactEntity entity : contacts) {
             i++;
-            if (entity.getId().equals(id)) {
+            if (entity
+              .getId()
+              .equals(id)) {
                 break;
             }
         }

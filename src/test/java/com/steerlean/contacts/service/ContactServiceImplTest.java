@@ -22,10 +22,21 @@ public class ContactServiceImplTest {
         employeeService.repository = new ContactRepository();
         employeeService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(1, employeeService.getAllContacts().size());
-        Assert.assertEquals(contactEntity.getEmail(), employeeService.getAllContacts().get(0).getEmail());
-        Assert.assertEquals(contactEntity.getFirstName(), employeeService.getAllContacts().get(0).getFirstName());
-        Assert.assertEquals(contactEntity.getLastName(), employeeService.getAllContacts().get(0).getLastName());
+        Assert.assertEquals(1, employeeService
+          .getAllContacts()
+          .size());
+        Assert.assertEquals(contactEntity.getEmail(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getEmail());
+        Assert.assertEquals(contactEntity.getFirstName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getFirstName());
+        Assert.assertEquals(contactEntity.getLastName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getLastName());
     }
 
     @Test
@@ -39,10 +50,21 @@ public class ContactServiceImplTest {
         employeeService.repository = new ContactRepository();
         contactEntity = employeeService.createOrUpdateContact(contactEntity);
         contactEntity = employeeService.getContactById(contactEntity.getId());
-        Assert.assertEquals(1, employeeService.getAllContacts().size());
-        Assert.assertEquals(contactEntity.getEmail(), employeeService.getAllContacts().get(0).getEmail());
-        Assert.assertEquals(contactEntity.getFirstName(), employeeService.getAllContacts().get(0).getFirstName());
-        Assert.assertEquals(contactEntity.getLastName(), employeeService.getAllContacts().get(0).getLastName());
+        Assert.assertEquals(1, employeeService
+          .getAllContacts()
+          .size());
+        Assert.assertEquals(contactEntity.getEmail(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getEmail());
+        Assert.assertEquals(contactEntity.getFirstName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getFirstName());
+        Assert.assertEquals(contactEntity.getLastName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getLastName());
     }
 
     @Test
@@ -57,10 +79,21 @@ public class ContactServiceImplTest {
         employeeService.repository = new ContactRepository();
         contactEntityActual = employeeService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(1, employeeService.getAllContacts().size());
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService.getAllContacts().get(0).getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService.getAllContacts().get(0).getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService.getAllContacts().get(0).getLastName());
+        Assert.assertEquals(1, employeeService
+          .getAllContacts()
+          .size());
+        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getEmail());
+        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getFirstName());
+        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getLastName());
     }
 
     @Test
@@ -77,10 +110,21 @@ public class ContactServiceImplTest {
         contactEntity.setEmail("abx@xyz.com");
         contactEntityActual = employeeService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(2, employeeService.getAllContacts().size());
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService.getAllContacts().get(0).getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService.getAllContacts().get(0).getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService.getAllContacts().get(0).getLastName());
+        Assert.assertEquals(2, employeeService
+          .getAllContacts()
+          .size());
+        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getEmail());
+        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getFirstName());
+        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getLastName());
     }
 
     @Test
@@ -96,8 +140,17 @@ public class ContactServiceImplTest {
         contactEntity = employeeService.createOrUpdateContact(contactEntity);
         contactEntityActual = employeeService.getContactById(contactEntity.getId());
 
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService.getAllContacts().get(0).getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService.getAllContacts().get(0).getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService.getAllContacts().get(0).getLastName());
+        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getEmail());
+        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getFirstName());
+        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+          .getAllContacts()
+          .get(0)
+          .getLastName());
     }
 }

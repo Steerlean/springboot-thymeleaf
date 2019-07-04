@@ -1,8 +1,6 @@
 package com.steerlean.contacts.web;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.steerlean.contacts.exception.RecordNotFoundException;
 import com.steerlean.contacts.model.ContactEntity;
 import com.steerlean.contacts.service.ContactServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.steerlean.contacts.exception.RecordNotFoundException;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
 public class ContactMvcController {
-    @Autowired
-    ContactServiceImpl service;
+    @Autowired ContactServiceImpl service;
 
     @RequestMapping
     public String getAllContacts(Model model) {
@@ -28,9 +26,8 @@ public class ContactMvcController {
         return "list-employees";
     }
 
-    @RequestMapping(path = {"/edit", "/edit/{id}"})
-    public String editContactsById(Model model, @PathVariable("id") Optional<Long> id)
-            throws RecordNotFoundException {
+    @RequestMapping(path = { "/edit", "/edit/{id}" })
+    public String editContactsById(Model model, @PathVariable("id") Optional<Long> id) throws RecordNotFoundException {
         if (id.isPresent()) {
             ContactEntity entity = service.getContactById(id.get());
             model.addAttribute("employee", entity);
@@ -41,8 +38,7 @@ public class ContactMvcController {
     }
 
     @RequestMapping(path = "/delete/{id}")
-    public String deleteContactsById(Model model, @PathVariable("id") Long id)
-            throws RecordNotFoundException {
+    public String deleteContactsById(Model model, @PathVariable("id") Long id) throws RecordNotFoundException {
         service.deleteContactById(id);
         return "redirect:/";
     }
