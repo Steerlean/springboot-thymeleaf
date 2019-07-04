@@ -13,7 +13,8 @@ import java.util.Optional;
 @Service
 public class ContactService {
 
-    @Autowired private ContactRepository repository;
+    @Autowired
+    private ContactRepository repository;
 
     public List<ContactEntity> getAllContacts() {
         List<ContactEntity> result = repository.findAll();
@@ -35,29 +36,9 @@ public class ContactService {
         }
     }
 
-    public ContactEntity createOrUpdateContact(ContactEntity entity) {
-        if (entity.getId() == null) {
-            entity = repository.save(entity);
-
-            return entity;
-        } else {
-            Optional<ContactEntity> contact = repository.findById(entity.getId());
-
-            if (contact.isPresent()) {
-                ContactEntity newEntity = contact.get();
-                newEntity.setEmail(entity.getEmail());
-                newEntity.setFirstName(entity.getFirstName());
-                newEntity.setLastName(entity.getLastName());
-
-                newEntity = repository.save(newEntity);
-
-                return newEntity;
-            } else {
-                entity = repository.save(entity);
-
-                return entity;
-            }
-        }
+    public ContactEntity createContact(ContactEntity entity) {
+        entity = repository.save(entity);
+        return entity;
     }
 
     public void deleteContactById(Long id) throws RecordNotFoundException {
@@ -68,5 +49,9 @@ public class ContactService {
         } else {
             throw new RecordNotFoundException("No contact record exist for given id");
         }
+    }
+
+    public void editContact(ContactEntity entity) {
+        repository.edit(entity);
     }
 }

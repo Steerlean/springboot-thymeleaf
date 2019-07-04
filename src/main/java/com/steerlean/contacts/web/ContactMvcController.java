@@ -45,7 +45,7 @@ public class ContactMvcController {
 
     @RequestMapping(path = "/createContact", method = RequestMethod.POST)
     public String createOrUpdateContact(ContactEntity contact) {
-        service.createOrUpdateContact(contact);
+        service.createContact(contact);
         return "redirect:/";
     }
 }

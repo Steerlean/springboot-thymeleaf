@@ -39,6 +39,17 @@ public class ContactRepository {
         return entity;
     }
 
+    public void edit(ContactEntity contactEntity) {
+        int i = -1;
+        for (ContactEntity entity : contacts) {
+            i++;
+            if (entity.getId().equals(contactEntity.getId())) {
+                contacts.set(i,contactEntity);
+                break;
+            }
+        }
+    }
+
     public void deleteById(Long id) {
         int i = -1;
         for (ContactEntity entity : contacts) {
