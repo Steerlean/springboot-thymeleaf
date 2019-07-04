@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>All Employees</title>
+    <title>All Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -14,10 +14,10 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${employees}" class="container my-5">
+            <div th:switch="${contacts}" class="container my-5">
                 <p class="my-5">
                     <a href="/edit" class="btn btn-primary">
-                        <i class="fas fa-user-plus ml-2"> Add Employee </i></a>
+                        <i class="fas fa-user-plus ml-2"> Add Contact </i></a>
                 </p>
                 <div class="col-md-10">
                     <h2 th:case="null">No record found !!</h2>
@@ -33,17 +33,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="employee : ${employees}">
-                                <td th:text="${employee.firstName}"></td>
-                                <td th:text="${employee.lastName}"></td>
-                                <td th:text="${employee.email}"></td>
+                            <tr th:each="contact : ${contacts}">
+                                <td th:text="${contact.firstName}"></td>
+                                <td th:text="${contact.lastName}"></td>
+                                <td th:text="${contact.email}"></td>
                                 <td>
-                                    <a th:href="@{/edit/{id}(id=${employee.id})}" class="btn btn-primary">
+                                    <a th:href="@{/edit/{id}(id=${contact.id})}" class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/delete/{id}(id=${employee.id})}" class="btn btn-primary">
+                                    <a th:href="@{/delete/{id}(id=${contact.id})}" class="btn btn-primary">
                                         <i class="fas fa-user-times ml-2"></i>
                                     </a>
                                 </td>

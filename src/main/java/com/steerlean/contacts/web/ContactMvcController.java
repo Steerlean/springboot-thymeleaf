@@ -22,19 +22,19 @@ public class ContactMvcController {
     public String getAllContacts(Model model) {
         List<ContactEntity> list = service.getAllContacts();
 
-        model.addAttribute("employees", list);
-        return "list-employees";
+        model.addAttribute("contacts", list);
+        return "list-contacts";
     }
 
     @RequestMapping(path = { "/edit", "/edit/{id}" })
     public String editContactsById(Model model, @PathVariable("id") Optional<Long> id) throws RecordNotFoundException {
         if (id.isPresent()) {
             ContactEntity entity = service.getContactById(id.get());
-            model.addAttribute("employee", entity);
+            model.addAttribute("contact", entity);
         } else {
-            model.addAttribute("employee", new ContactEntity());
+            model.addAttribute("contact", new ContactEntity());
         }
-        return "add-edit-employee";
+        return "add-edit-contact";
     }
 
     @RequestMapping(path = "/delete/{id}")
@@ -43,9 +43,9 @@ public class ContactMvcController {
         return "redirect:/";
     }
 
-    @RequestMapping(path = "/createEmployee", method = RequestMethod.POST)
-    public String createOrUpdateContact(ContactEntity employee) {
-        service.createOrUpdateContact(employee);
+    @RequestMapping(path = "/createContact", method = RequestMethod.POST)
+    public String createOrUpdateContact(ContactEntity contact) {
+        service.createOrUpdateContact(contact);
         return "redirect:/";
     }
 }

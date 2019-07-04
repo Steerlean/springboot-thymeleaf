@@ -13,7 +13,8 @@ import java.util.Optional;
 @Service
 public class ContactServiceImpl {
 
-    @Autowired ContactRepository repository;
+    @Autowired
+    ContactRepository repository;
 
     public List<ContactEntity> getAllContacts() {
         List<ContactEntity> result = repository.findAll();

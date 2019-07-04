@@ -12,143 +12,143 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ContactServiceImplTest {
 
     @Test
-    public void getAllEmployees() {
+    public void getAllContacts() {
         ContactEntity contactEntity = new ContactEntity();
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl employeeService = new ContactServiceImpl();
-        employeeService.repository = new ContactRepository();
-        employeeService.createOrUpdateContact(contactEntity);
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        contactService.repository = new ContactRepository();
+        contactService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(1, employeeService
+        Assert.assertEquals(1, contactService
           .getAllContacts()
           .size());
-        Assert.assertEquals(contactEntity.getEmail(), employeeService
+        Assert.assertEquals(contactEntity.getEmail(), contactService
           .getAllContacts()
           .get(0)
           .getEmail());
-        Assert.assertEquals(contactEntity.getFirstName(), employeeService
+        Assert.assertEquals(contactEntity.getFirstName(), contactService
           .getAllContacts()
           .get(0)
           .getFirstName());
-        Assert.assertEquals(contactEntity.getLastName(), employeeService
+        Assert.assertEquals(contactEntity.getLastName(), contactService
           .getAllContacts()
           .get(0)
           .getLastName());
     }
 
     @Test
-    public void getEmployeeById() throws RecordNotFoundException {
+    public void getContactById() throws RecordNotFoundException {
         ContactEntity contactEntity = new ContactEntity();
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl employeeService = new ContactServiceImpl();
-        employeeService.repository = new ContactRepository();
-        contactEntity = employeeService.createOrUpdateContact(contactEntity);
-        contactEntity = employeeService.getContactById(contactEntity.getId());
-        Assert.assertEquals(1, employeeService
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        contactService.repository = new ContactRepository();
+        contactEntity = contactService.createOrUpdateContact(contactEntity);
+        contactEntity = contactService.getContactById(contactEntity.getId());
+        Assert.assertEquals(1, contactService
           .getAllContacts()
           .size());
-        Assert.assertEquals(contactEntity.getEmail(), employeeService
+        Assert.assertEquals(contactEntity.getEmail(), contactService
           .getAllContacts()
           .get(0)
           .getEmail());
-        Assert.assertEquals(contactEntity.getFirstName(), employeeService
+        Assert.assertEquals(contactEntity.getFirstName(), contactService
           .getAllContacts()
           .get(0)
           .getFirstName());
-        Assert.assertEquals(contactEntity.getLastName(), employeeService
+        Assert.assertEquals(contactEntity.getLastName(), contactService
           .getAllContacts()
           .get(0)
           .getLastName());
     }
 
     @Test
-    public void createOrUpdateEmployee() {
+    public void createOrUpdateContact() {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl employeeService = new ContactServiceImpl();
-        employeeService.repository = new ContactRepository();
-        contactEntityActual = employeeService.createOrUpdateContact(contactEntity);
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        contactService.repository = new ContactRepository();
+        contactEntityActual = contactService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(1, employeeService
+        Assert.assertEquals(1, contactService
           .getAllContacts()
           .size());
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+        Assert.assertEquals(contactEntityActual.getEmail(), contactService
           .getAllContacts()
           .get(0)
           .getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+        Assert.assertEquals(contactEntityActual.getFirstName(), contactService
           .getAllContacts()
           .get(0)
           .getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+        Assert.assertEquals(contactEntityActual.getLastName(), contactService
           .getAllContacts()
           .get(0)
           .getLastName());
     }
 
     @Test
-    public void UpdateEmployee() {
+    public void UpdateContact() {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl employeeService = new ContactServiceImpl();
-        employeeService.repository = new ContactRepository();
-        contactEntity = employeeService.createOrUpdateContact(contactEntity);
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        contactService.repository = new ContactRepository();
+        contactEntity = contactService.createOrUpdateContact(contactEntity);
         contactEntity.setEmail("abx@xyz.com");
-        contactEntityActual = employeeService.createOrUpdateContact(contactEntity);
+        contactEntityActual = contactService.createOrUpdateContact(contactEntity);
 
-        Assert.assertEquals(2, employeeService
+        Assert.assertEquals(2, contactService
           .getAllContacts()
           .size());
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+        Assert.assertEquals(contactEntityActual.getEmail(), contactService
           .getAllContacts()
           .get(0)
           .getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+        Assert.assertEquals(contactEntityActual.getFirstName(), contactService
           .getAllContacts()
           .get(0)
           .getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+        Assert.assertEquals(contactEntityActual.getLastName(), contactService
           .getAllContacts()
           .get(0)
           .getLastName());
     }
 
     @Test
-    public void deleteEmployeeById() throws RecordNotFoundException {
+    public void deleteContactById() throws RecordNotFoundException {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl employeeService = new ContactServiceImpl();
-        employeeService.repository = new ContactRepository();
-        contactEntity = employeeService.createOrUpdateContact(contactEntity);
-        contactEntityActual = employeeService.getContactById(contactEntity.getId());
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        contactService.repository = new ContactRepository();
+        contactEntity = contactService.createOrUpdateContact(contactEntity);
+        contactEntityActual = contactService.getContactById(contactEntity.getId());
 
-        Assert.assertEquals(contactEntityActual.getEmail(), employeeService
+        Assert.assertEquals(contactEntityActual.getEmail(), contactService
           .getAllContacts()
           .get(0)
           .getEmail());
-        Assert.assertEquals(contactEntityActual.getFirstName(), employeeService
+        Assert.assertEquals(contactEntityActual.getFirstName(), contactService
           .getAllContacts()
           .get(0)
           .getFirstName());
-        Assert.assertEquals(contactEntityActual.getLastName(), employeeService
+        Assert.assertEquals(contactEntityActual.getLastName(), contactService
           .getAllContacts()
           .get(0)
           .getLastName());
