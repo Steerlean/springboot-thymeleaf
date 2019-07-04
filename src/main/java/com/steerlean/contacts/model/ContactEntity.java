@@ -7,7 +7,7 @@ public class ContactEntity {
 
     private Long id;
 
-    private Long phone;
+    private String phone;
 
     private String firstName;
 
@@ -47,11 +47,11 @@ public class ContactEntity {
         this.email = email;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
