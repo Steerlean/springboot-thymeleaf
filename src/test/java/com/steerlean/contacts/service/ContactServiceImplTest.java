@@ -1,8 +1,8 @@
-package com.howtodoinjava.demo.service;
+package com.steerlean.contacts.service;
 
-import com.howtodoinjava.demo.exception.RecordNotFoundException;
-import com.howtodoinjava.demo.model.ContactEntity;
-import com.howtodoinjava.demo.repository.ContactRepository;
+import com.steerlean.contacts.exception.RecordNotFoundException;
+import com.steerlean.contacts.model.ContactEntity;
+import com.steerlean.contacts.repository.ContactRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

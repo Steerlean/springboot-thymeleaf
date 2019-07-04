@@ -1,10 +1,10 @@
-package com.howtodoinjava.demo.web;
+package com.steerlean.contacts.web;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.howtodoinjava.demo.model.ContactEntity;
-import com.howtodoinjava.demo.service.ContactServiceImpl;
+import com.steerlean.contacts.model.ContactEntity;
+import com.steerlean.contacts.service.ContactServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.howtodoinjava.demo.exception.RecordNotFoundException;
+import com.steerlean.contacts.exception.RecordNotFoundException;
 
 @Controller
 @RequestMapping("/")

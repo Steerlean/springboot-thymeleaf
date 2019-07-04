@@ -1,6 +1,6 @@
-package com.howtodoinjava.demo.repository;
+package com.steerlean.contacts.repository;
 
-import com.howtodoinjava.demo.model.ContactEntity;
+import com.steerlean.contacts.model.ContactEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.howtodoinjava.demo.repository;
+package com.steerlean.contacts.repository;
 
-import com.howtodoinjava.demo.model.ContactEntity;
+import com.steerlean.contacts.model.ContactEntity;
 import org.junit.Assert;
 import org.junit.Test;
 

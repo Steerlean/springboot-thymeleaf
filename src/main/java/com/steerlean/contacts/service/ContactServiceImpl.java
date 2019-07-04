@@ -1,15 +1,15 @@
-package com.howtodoinjava.demo.service;
+package com.steerlean.contacts.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.howtodoinjava.demo.model.ContactEntity;
+import com.steerlean.contacts.model.ContactEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.howtodoinjava.demo.exception.RecordNotFoundException;
-import com.howtodoinjava.demo.repository.ContactRepository;
+import com.steerlean.contacts.exception.RecordNotFoundException;
+import com.steerlean.contacts.repository.ContactRepository;
 
 @Service
 public class ContactServiceImpl {
