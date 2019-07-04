@@ -1,0 +1,10 @@
+**/.idea
+**/.gradle
+**/build
+**/out
+**/dist/*
+**/*.iml
+**/.DS_Store
+**/node_modules/*
+**/*.ipr
+**/*.iws
