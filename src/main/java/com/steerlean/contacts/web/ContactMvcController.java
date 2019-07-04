@@ -2,7 +2,7 @@ package com.steerlean.contacts.web;
 
 import com.steerlean.contacts.exception.RecordNotFoundException;
 import com.steerlean.contacts.model.ContactEntity;
-import com.steerlean.contacts.service.ContactServiceImpl;
+import com.steerlean.contacts.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/")
 public class ContactMvcController {
-    @Autowired ContactServiceImpl service;
+    @Autowired ContactService service;
 
     @RequestMapping
     public String getAllContacts(Model model) {

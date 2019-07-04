@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ContactServiceImpl {
+public class ContactService {
 
-    @Autowired
-    ContactRepository repository;
+    @Autowired private ContactRepository repository;
 
     public List<ContactEntity> getAllContacts() {
         List<ContactEntity> result = repository.findAll();

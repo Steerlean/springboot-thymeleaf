@@ -3,17 +3,26 @@ package com.steerlean.contacts.repository;
 import com.steerlean.contacts.model.ContactEntity;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ContactRepositoryTest {
 
+    @Autowired private ContactRepository contactRepository;
+
     @Test
-    public void findAll() {
+    public void testFindAll() {
         ContactEntity entity = new ContactEntity();
         entity.setEmail("jay@gmail.com");
         entity.setFirstName("jayesh");
         entity.setLastName("ksh");
-        ContactRepository contactRepository = new ContactRepository();
+
         contactRepository.save(entity);
+
         Assert.assertEquals(1, contactRepository
           .findAll()
           .size());
@@ -32,40 +41,40 @@ public class ContactRepositoryTest {
     }
 
     @Test
-    public void findById() {
+    public void testFindById() {
         ContactEntity entity = new ContactEntity();
         entity.setEmail("jay@gmail.com");
         entity.setFirstName("jayesh");
         entity.setLastName("ksh");
-        ContactRepository contactRepository = new ContactRepository();
+
         entity = contactRepository.save(entity);
+
         Assert.assertEquals(true, contactRepository
           .findById(entity.getId())
           .isPresent());
     }
 
     @Test
-    public void save() {
+    public void testSave() {
         ContactEntity entity = new ContactEntity();
         entity.setEmail("jay@gmail.com");
         entity.setFirstName("jayesh");
         entity.setLastName("ksh");
 
-        ContactRepository contactRepository = new ContactRepository();
         ContactEntity actualEntity = contactRepository.save(entity);
+
         Assert.assertEquals(actualEntity.getEmail(), entity.getEmail());
         Assert.assertEquals(actualEntity.getFirstName(), entity.getFirstName());
         Assert.assertEquals(actualEntity.getLastName(), entity.getLastName());
     }
 
     @Test
-    public void deleteById() {
+    public void testDeleteById() {
         ContactEntity entity = new ContactEntity();
         entity.setEmail("jay@gmail.com");
         entity.setFirstName("jayesh");
         entity.setLastName("ksh");
 
-        ContactRepository contactRepository = new ContactRepository();
         ContactEntity actualEntity = contactRepository.save(entity);
 
         Assert.assertEquals(1, contactRepository

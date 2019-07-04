@@ -2,24 +2,26 @@ package com.steerlean.contacts.service;
 
 import com.steerlean.contacts.exception.RecordNotFoundException;
 import com.steerlean.contacts.model.ContactEntity;
-import com.steerlean.contacts.repository.ContactRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-public class ContactServiceImplTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ContactServiceTest {
+
+    @Autowired private ContactService contactService;
 
     @Test
-    public void getAllContacts() {
+    public void testGetAllContacts() {
         ContactEntity contactEntity = new ContactEntity();
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl contactService = new ContactServiceImpl();
-        contactService.repository = new ContactRepository();
         contactService.createOrUpdateContact(contactEntity);
 
         Assert.assertEquals(1, contactService
@@ -40,14 +42,12 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void getContactById() throws RecordNotFoundException {
+    public void testGetContactById() throws RecordNotFoundException {
         ContactEntity contactEntity = new ContactEntity();
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl contactService = new ContactServiceImpl();
-        contactService.repository = new ContactRepository();
         contactEntity = contactService.createOrUpdateContact(contactEntity);
         contactEntity = contactService.getContactById(contactEntity.getId());
         Assert.assertEquals(1, contactService
@@ -68,15 +68,13 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void createOrUpdateContact() {
+    public void testCreateOrUpdateContact() {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl contactService = new ContactServiceImpl();
-        contactService.repository = new ContactRepository();
         contactEntityActual = contactService.createOrUpdateContact(contactEntity);
 
         Assert.assertEquals(1, contactService
@@ -97,15 +95,13 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void UpdateContact() {
+    public void testUpdateContact() {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl contactService = new ContactServiceImpl();
-        contactService.repository = new ContactRepository();
         contactEntity = contactService.createOrUpdateContact(contactEntity);
         contactEntity.setEmail("abx@xyz.com");
         contactEntityActual = contactService.createOrUpdateContact(contactEntity);
@@ -128,15 +124,13 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void deleteContactById() throws RecordNotFoundException {
+    public void testDeleteContactById() throws RecordNotFoundException {
         ContactEntity contactEntity = new ContactEntity();
         ContactEntity contactEntityActual;
         contactEntity.setFirstName("Om");
         contactEntity.setLastName("xyz");
         contactEntity.setEmail("abx@xyz.com");
 
-        ContactServiceImpl contactService = new ContactServiceImpl();
-        contactService.repository = new ContactRepository();
         contactEntity = contactService.createOrUpdateContact(contactEntity);
         contactEntityActual = contactService.getContactById(contactEntity.getId());
 
