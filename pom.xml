@@ -9,11 +9,11 @@
 		<version>2.1.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.howtodoinjava</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.steerlean</groupId>
+	<artifactId>contacts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>contacts</name>
+	<description>Contact Management</description>
 
 	<properties>
 		<java.version>1.8</java.version>
