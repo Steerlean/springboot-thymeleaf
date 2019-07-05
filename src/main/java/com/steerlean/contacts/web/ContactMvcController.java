@@ -43,6 +43,10 @@ public class ContactMvcController {
         String password = userEntity.getPassword();
         if ("admin".equals(username) && "admin".equals(password)) {
             httpSession.setAttribute("username", userEntity.getUsername());
+
+            List<ContactEntity> list = service.getAllContacts();
+
+            model.addAttribute("contacts", list);
             return "list-contacts";
         }
         model.addAttribute("invalidCredentials", true);
@@ -62,6 +66,7 @@ public class ContactMvcController {
         if (id.isPresent()) {
             ContactEntity entity = service.getContactById(id.get());
             model.addAttribute("contact", entity);
+            return "edit-contact";
         } else {
             model.addAttribute("contact", new ContactEntity());
         }
@@ -77,6 +82,12 @@ public class ContactMvcController {
     @RequestMapping(path = "/createContact", method = RequestMethod.POST)
     public String createOrUpdateContact(ContactEntity contact) {
         service.createContact(contact);
+        return "redirect:/getAllContacts";
+    }
+
+    @RequestMapping(path = "/editContact", method = RequestMethod.POST)
+    public String edtit(ContactEntity contact) {
+        service.editContact(contact);
         return "redirect:/getAllContacts";
     }
 }
