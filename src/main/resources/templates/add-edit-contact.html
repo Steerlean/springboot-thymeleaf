@@ -42,6 +42,7 @@
 
 
 
+
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -51,7 +52,7 @@
 
 <body>
 <h3> Add Contact</h3>
-<div style="border-radius: 5px;background-color: #f2f2f2;padding: 20px;width:60%">
+<section style="border-radius: 5px;background-color: #f2f2f2;padding: 20px;width:60%">
     <form action="#" th:action="@{/createContact}" th:object="${contact}" method="post">
         <section>
             <label for="firstName">First Name</label>
@@ -81,7 +82,7 @@
         <input type="hidden" id="id" th:field="*{id}" onclick="/">
 
     </form>
-</div>
+</section>
 </body>
 
 </html>

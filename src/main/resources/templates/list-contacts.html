@@ -36,6 +36,38 @@
         background-color: black;
     }
 
+    body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
 
 
     </style>
@@ -47,12 +79,19 @@
 
 <body>
 <header>
-    <h1>Contact Management</h1>
+    <!--<h2>Contact Management</h2>-->
+    <section class="topnav">
+        <a class="active"><b>Contact Management</b></a>
+        <section class="topnav-right">
+            <a href="/login">Log Out</a>
+        </section>
+    </section>
 </header>
+
 <section th:switch="${contacts}">
     <p>
         <a class="makeBtn" href="/edit">
-           <!--<img th:src="@{./imgs/add.png}" />-->
+            <!--<img th:src="@{./imgs/add.png}" />-->
             Add Contact
         </a>
     </p>
