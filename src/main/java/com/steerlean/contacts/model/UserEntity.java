@@ -1,9 +1,12 @@
 package com.steerlean.contacts.model;
 
 public class UserEntity {
+
     private String username;
 
     private String password;
+
+    private Long id;
 
     public String getUsername() {
         return username;
@@ -19,5 +22,13 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

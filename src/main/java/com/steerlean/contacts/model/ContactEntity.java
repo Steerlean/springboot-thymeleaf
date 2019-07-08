@@ -1,9 +1,6 @@
 package com.steerlean.contacts.model;
 
 public class ContactEntity {
-    public ContactEntity() {
-
-    }
 
     private Long id;
 
@@ -14,6 +11,8 @@ public class ContactEntity {
     private String lastName;
 
     private String email;
+
+    private String userId;
 
     public Long getId() {
         return id;
@@ -53,6 +52,14 @@ public class ContactEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override

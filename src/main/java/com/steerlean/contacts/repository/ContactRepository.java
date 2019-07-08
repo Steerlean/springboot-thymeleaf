@@ -35,7 +35,9 @@ public class ContactRepository {
 
     public ContactEntity save(ContactEntity entity) {
         entity.setId(random.nextLong());
+
         contacts.add(entity);
+
         return entity;
     }
 
