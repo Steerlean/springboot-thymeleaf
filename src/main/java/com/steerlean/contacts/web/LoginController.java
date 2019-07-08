@@ -46,17 +46,6 @@ public class LoginController {
     public String login(@ModelAttribute(name = "loginForm") UserEntity userEntity, Model model, HttpSession httpSession,
                         HttpServletResponse response) {
 
-        UserEntity userEntity1 = new UserEntity();
-        userEntity1.setUsername("Devesh");
-        userEntity1.setPassword("Devesh123");
-
-        UserEntity userEntity2 = new UserEntity();
-        userEntity2.setUsername("Jayesh");
-        userEntity2.setPassword("Jayesh123");
-
-        userService.createUser(userEntity1);
-        userService.createUser(userEntity2);
-
         String username = userEntity.getUsername();
         String password = userEntity.getPassword();
 
