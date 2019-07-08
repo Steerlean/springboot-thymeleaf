@@ -6,7 +6,6 @@ import com.steerlean.contacts.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,7 +46,6 @@ public class LoginController {
         if ("admin".equals(username) && "admin".equals(password)) {
             httpSession.setAttribute("username", userEntity.getUsername());
             Long id = random.nextLong();
-            System.out.println("\n\n\n\n"+ id+"\n\n\n\n");
             response.addCookie(new Cookie("id", id + ""));
             userEntity.setId(id);
             List<ContactEntity> list = service.getAllContacts();

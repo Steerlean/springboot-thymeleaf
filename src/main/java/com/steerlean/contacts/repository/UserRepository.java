@@ -36,4 +36,8 @@ public class UserRepository {
         users.add(entity);
         return entity;
     }
+
+    public void deleteAll() {
+        users = new ArrayList<>();
+    }
 }
