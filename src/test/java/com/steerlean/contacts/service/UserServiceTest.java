@@ -63,4 +63,9 @@ public class UserServiceTest {
         userEntity = userService.createUser(userEntity);
         Assert.assertEquals(3,userService.getAllUsers().size());
     }
+
+    @Test
+    public void testGetAuthenticate(){
+        Assert.assertEquals(true,userService.getAuthenticate("xyz","123456"));
+    }
 }

@@ -56,4 +56,9 @@ public class UserRepositoryTest {
         Assert.assertEquals(3, repository.findAll().size());
 
     }
+
+    @Test
+    public void testAuthenticate(){
+        Assert.assertEquals(true,repository.authenticate("jayesh","456789"));
+    }
 }

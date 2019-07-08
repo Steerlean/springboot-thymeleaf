@@ -14,6 +14,10 @@ public class UserService {
     @Autowired
     public UserRepository repository;
 
+    public boolean getAuthenticate(String uname, String pass) {
+        return repository.authenticate(uname, pass);
+    }
+
     public List<UserEntity> getAllUsers() {
         List<UserEntity> userList = repository.findAll();
         if (userList.size() > 0) {
@@ -38,7 +42,7 @@ public class UserService {
         return entity;
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         repository.deleteAll();
     }
 }
