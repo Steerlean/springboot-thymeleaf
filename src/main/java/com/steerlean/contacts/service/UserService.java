@@ -15,7 +15,12 @@ public class UserService {
     public UserRepository repository;
 
     public boolean getAuthenticate(String uname, String pass) {
-        return repository.authenticate(uname, pass);
+        for (UserEntity user : repository.findAll()) {
+            if (user.getUsername().equals(uname) && user.getPassword().equals(pass)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<UserEntity> getAllUsers() {

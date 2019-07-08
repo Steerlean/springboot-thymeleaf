@@ -12,15 +12,6 @@ public class UserRepository {
     Random random = new Random();
     private List<UserEntity> users;
 
-    public boolean authenticate(String uname, String pass) {
-        for (UserEntity user : users) {
-            if (user.getUsername().equals(uname) && user.getPassword().equals(pass)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public UserRepository() {
         this.users = new ArrayList<>();
     }
