@@ -21,9 +21,9 @@ public class ContactMvcController {
     @Autowired
     ContactService service;
 
-    @RequestMapping(path = "/getAllContacts")
-    public String getAllContacts(Model model) {
-        List<ContactEntity> list = service.getAllContacts();
+    @RequestMapping(path = "/getAllContactsByUser")
+    public String getAllContacts(Model model, @CookieValue("id") String id) {
+        List<ContactEntity> list = service.getAllContactsByUser(id);
 
         model.addAttribute("contacts", list);
         return "list-contacts";
@@ -44,19 +44,20 @@ public class ContactMvcController {
     @RequestMapping(path = "/delete/{id}")
     public String deleteContactsById(Model model, @PathVariable("id") Long id) throws RecordNotFoundException {
         service.deleteContactById(id);
-        return "redirect:/getAllContacts";
+        return "redirect:/getAllContactsByUser";
     }
 
     @RequestMapping(path = "/createContact", method = RequestMethod.POST)
     public String createOrUpdateContact(ContactEntity contact, HttpServletRequest request, @CookieValue("id") String id) {
         contact.setUserId(id);
         service.createContact(contact);
-        return "redirect:/getAllContacts";
+        return "redirect:/getAllContactsByUser";
     }
 
     @RequestMapping(path = "/editContact", method = RequestMethod.POST)
-    public String edit(ContactEntity contact) {
+    public String edit(ContactEntity contact, @CookieValue("id") String id) {
+        contact.setUserId(id);
         service.editContact(contact);
-        return "redirect:/getAllContacts";
+        return "redirect:/getAllContactsByUser";
     }
 }

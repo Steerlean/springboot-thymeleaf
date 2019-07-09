@@ -49,12 +49,14 @@ public class LoginController {
         String username = userEntity.getUsername();
         String password = userEntity.getPassword();
 
-        if (userService.getAuthenticate(username, password)) {
+        if (userService.authenticate(username, password)) {
             httpSession.setAttribute("username", userEntity.getUsername());
             Long id = random.nextLong();
-            response.addCookie(new Cookie("id", id + ""));
+//            response.addCookie(new Cookie("id", id + ""));
+            response.addCookie(new Cookie("id", userEntity.getUsername()));
             userEntity.setId(id);
-            List<ContactEntity> list = contactService.getAllContacts();
+
+            List<ContactEntity> list = contactService.getAllContactsByUser(userEntity.getUsername());
             model.addAttribute("contacts", list);
             return "list-contacts";
         }
@@ -63,4 +65,3 @@ public class LoginController {
     }
 
 }
-

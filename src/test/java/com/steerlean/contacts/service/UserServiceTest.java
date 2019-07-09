@@ -1,7 +1,6 @@
 package com.steerlean.contacts.service;
 
 import com.steerlean.contacts.exception.RecordNotFoundException;
-import com.steerlean.contacts.model.ContactEntity;
 import com.steerlean.contacts.model.UserEntity;
 import org.junit.After;
 import org.junit.Assert;
@@ -11,8 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -66,6 +63,6 @@ public class UserServiceTest {
 
     @Test
     public void testGetAuthenticate(){
-        Assert.assertEquals(true,userService.getAuthenticate("xyz","123456"));
+        Assert.assertEquals(true,userService.authenticate("xyz","123456"));
     }
 }

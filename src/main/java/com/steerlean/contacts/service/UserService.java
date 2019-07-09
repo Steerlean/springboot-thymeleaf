@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     public UserRepository repository;
 
-    public boolean getAuthenticate(String uname, String pass) {
+    public boolean authenticate(String uname, String pass) {
         for (UserEntity user : repository.findAll()) {
             if (user.getUsername().equals(uname) && user.getPassword().equals(pass)) {
                 return true;

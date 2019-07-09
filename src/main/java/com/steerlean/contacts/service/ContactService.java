@@ -26,6 +26,19 @@ public class ContactService {
         }
     }
 
+    public List<ContactEntity> getAllContactsByUser(String id) {
+        List<ContactEntity> result = repository.findAll();
+        List<ContactEntity> contactByUser = new ArrayList<>();
+        if (result.size() > 0) {
+            for (ContactEntity contact : result) {
+                if (contact.getUserId().equals(id)) {
+                    contactByUser.add(contact);
+                }
+            }
+        }
+        return contactByUser;
+    }
+
     public ContactEntity getContactById(Long id) throws RecordNotFoundException {
         Optional<ContactEntity> contact = repository.findById(id);
 
