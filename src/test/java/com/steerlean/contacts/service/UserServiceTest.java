@@ -63,6 +63,6 @@ public class UserServiceTest {
 
     @Test
     public void testGetAuthenticate(){
-        Assert.assertEquals(true,userService.authenticate("xyz","123456"));
+        Assert.assertEquals(user2.getId(),userService.authenticate("xyz","123456"));
     }
 }

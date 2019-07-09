@@ -48,15 +48,13 @@ public class LoginController {
 
         String username = userEntity.getUsername();
         String password = userEntity.getPassword();
+        Long id = userService.authenticate(username, password);
 
-        if (userService.authenticate(username, password)) {
+        if (id != -1L) {
             httpSession.setAttribute("username", userEntity.getUsername());
-            Long id = random.nextLong();
-//            response.addCookie(new Cookie("id", id + ""));
-            response.addCookie(new Cookie("id", userEntity.getUsername()));
-            userEntity.setId(id);
+            response.addCookie(new Cookie("id", id + ""));
 
-            List<ContactEntity> list = contactService.getAllContactsByUser(userEntity.getUsername());
+            List<ContactEntity> list = contactService.getAllContactsByUser(id + "");
             model.addAttribute("contacts", list);
             return "list-contacts";
         }

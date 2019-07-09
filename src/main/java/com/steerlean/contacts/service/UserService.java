@@ -14,13 +14,13 @@ public class UserService {
     @Autowired
     public UserRepository repository;
 
-    public boolean authenticate(String uname, String pass) {
+    public Long authenticate(String uname, String pass) {
         for (UserEntity user : repository.findAll()) {
             if (user.getUsername().equals(uname) && user.getPassword().equals(pass)) {
-                return true;
+                return user.getId();
             }
         }
-        return false;
+        return -1L;
     }
 
     public List<UserEntity> getAllUsers() {
@@ -44,6 +44,7 @@ public class UserService {
 
     public UserEntity createUser(UserEntity entity) {
         entity = repository.save(entity);
+        System.out.println("Id: " + entity.getId() + ", Username: " + entity.getUsername());
         return entity;
     }
 

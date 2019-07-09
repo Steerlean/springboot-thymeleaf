@@ -39,7 +39,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindAll() {
-        Assert.assertEquals(2, repository.findAll().size());
+        Assert.assertEquals(4, repository.findAll().size());
     }
 
     @Test
